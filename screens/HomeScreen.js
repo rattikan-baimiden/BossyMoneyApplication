@@ -1,11 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+
+import { StyleSheet, Text, View, Image } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { Button } from 'react-native-paper';
 import { Card, Title, Paragraph } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
-
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
 
 
     return (
@@ -51,6 +53,11 @@ const HomeScreen = () => {
                 <Title>Shopping 20$</Title>
                 </Card.Content>
             </Card>
+
+            <Button style={stylesForHomeScreen.button} icon={{ uri: 'https://cdn-icons-png.flaticon.com/512/262/262038.png'}} mode="contained"
+              onPress={() => {navigation.navigate('AddMenu', {itemId: 86,otherParam: 'anything you want here',});}}>
+                
+            </Button>
            
         </View>
     )
@@ -130,11 +137,17 @@ const stylesForHomeScreen = StyleSheet.create({
   },
   ColorExpensesButton:{
     backgroundColor: '#ff8c00'
+  },
+  button: {
+    alignSelf: 'center', 
+    justifyContent: 'center' ,
+    alignItems: 'center',
+    backgroundColor: '#ACC5F8'
   }
   });
 
   
 
-export default HomeScreen
+export default HomeScreen;
 
 const styles = StyleSheet.create({})

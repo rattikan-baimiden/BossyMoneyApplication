@@ -1,8 +1,11 @@
+
 import { SafeAreaView,StyleSheet, Text, View,TextInput} from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { Button } from 'react-native-paper'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const LogInScreen = () => {
+const LogInScreen = ({ navigation }) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -25,13 +28,13 @@ const LogInScreen = () => {
                 />
             </View>
 
-            <Button style={styles.buttonContainer} mode="contained" onPress={() => console.log('Pressed')}> Log In </Button>
+            <Button style={styles.buttonContainer} mode="contained" onPress={() => {navigation.navigate('Home', {itemId: 86,otherParam: 'anything you want here',});}}> Log In </Button>
 
         </SafeAreaView>
     )
 }
 
-export default LogInScreen
+export default LogInScreen;
 
 const styles = StyleSheet.create({
     input: {

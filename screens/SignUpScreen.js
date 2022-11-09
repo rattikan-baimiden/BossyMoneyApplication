@@ -1,9 +1,12 @@
+
 import { SafeAreaView,StyleSheet, Text, View,TextInput} from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { Button } from 'react-native-paper'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
-const SignUpScreen = () => {
+const SignUpScreen = ({ navigation }) => {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
@@ -38,13 +41,15 @@ const SignUpScreen = () => {
         />
       </View>
 
-      <Button style={styles.buttonContainer} mode="contained" onPress={() => console.log('Pressed')}> Sign Up </Button>
-
+      <Button style={styles.buttonContainer} mode="contained" 
+        onPress={() => {navigation.navigate('Home', {itemId: 86,otherParam: 'anything you want here',});}}> 
+        Sign Up 
+      </Button>
     </SafeAreaView>
     )
 }
 
-export default SignUpScreen
+export default SignUpScreen;
 
 const styles = StyleSheet.create({
   input: {
