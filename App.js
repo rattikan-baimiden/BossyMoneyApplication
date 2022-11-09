@@ -3,8 +3,10 @@ import * as React from 'react';
 import { Button, View, Text, Dimensions, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LogInScreen from './screens/LogInScreen';
+import SignUpScreen from './screens/SignUpScreen';
 
-function HomeScreen({ navigation }) {
+function WelcomeScreen({ navigation }) {
   
   return (
     <View style={styles.screen}>
@@ -62,50 +64,6 @@ const styles = StyleSheet.create({
 
 });
 
-function LogInScreen({ route, navigation }) {
-  /* 2. Get the param */
-  const { itemId, otherParam } = route.params;
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Log in Screen</Text>
-      <Text>itemId: {JSON.stringify(itemId)}</Text>
-      <Text>otherParam: {JSON.stringify(otherParam)}</Text>
-      {/* <Button
-        title="Go to LogIn... again"
-        onPress={() =>
-          navigation.push('LogIn', {
-            itemId: Math.floor(Math.random() * 100),
-          })
-        }
-      /> */}
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-    </View>
-  );
-}
-
-function SignUpScreen({ route, navigation }) {
-  /* 2. Get the param */
-  const { itemId, otherParam } = route.params;
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Sign up Screen</Text>
-      <Text>itemId: {JSON.stringify(itemId)}</Text>
-      <Text>otherParam: {JSON.stringify(otherParam)}</Text>
-      {/* <Button
-        title="Go to LogIn... again"
-        onPress={() =>
-          navigation.push('LogIn', {
-            itemId: Math.floor(Math.random() * 100),
-          })
-        }
-      /> */}
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-    </View>
-  );
-}
-
 
 const Stack = createNativeStackNavigator();
 
@@ -113,8 +71,8 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Navigator initialRouteName="Welcome">
+        <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="LogIn" component={LogInScreen} />
         <Stack.Screen name="SignUp" component={SignUpScreen} />
       </Stack.Navigator>
