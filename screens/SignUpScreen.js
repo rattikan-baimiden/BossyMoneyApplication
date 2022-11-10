@@ -42,7 +42,7 @@ const SignUpScreen = ({ navigation }) => {
       </View>
 
       <Button style={styles.buttonContainer} mode="contained" 
-        onPress={() => {navigation.navigate('Home', {itemId: 86,otherParam: 'anything you want here',});}}> 
+        onPress={() => {navigation.navigate('LogIn', {itemId: 86,otherParam: 'anything you want here',});}}> 
         Sign Up 
       </Button>
     </SafeAreaView>
