@@ -1,6 +1,6 @@
 // In App.js in a new project
 import * as React from 'react';
-import { View, Text, Dimensions, StyleSheet, Image } from 'react-native';
+import { View, Text, Dimensions, StyleSheet, Image, ImageBackground } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Button } from 'react-native-paper';
@@ -10,32 +10,27 @@ import AddMenuScreen from './screens/AddMenuScreen';
 import HomeScreen from './screens/HomeScreen';
 
 function WelcomeScreen({ navigation }) {
-  
-  return (
-    <View style={styles.screen}>
-      <Image
-        style={styles.logo}
-        source={{
-          uri: 'https://cdn-icons-png.flaticon.com/512/69/69881.png',
-        }}
-      />
-      <Text style={styles.baseText}>
-        Welcome to   
-      </Text>
-      <Text style={styles.innerText}>Bossy Money !!</Text>
-      <Button style={styles.login_button} icon={{ uri: 'https://cdn-icons-png.flaticon.com/512/272/272354.png'}} mode="contained"
-        onPress={() => {navigation.navigate('LogIn', {itemId: 86,otherParam: 'anything you want here',});}}>
-          Log in
-      </Button>
-      <Text style={styles.padding}></Text>
-      <Button style={styles.signup_button} icon={{ uri: 'http://cdn.onlinewebfonts.com/svg/img_411076.png'}} mode="contained"
-        onPress={() => {navigation.navigate('SignUp', {itemId: 86,otherParam: 'anything you want here',});}}>
-          Sign up
-      </Button>
-      
-      <Text style={styles.padding}></Text>
 
-    </View>
+  return (
+    <ImageBackground source={require('./asset/image/welcomeScreen.jpg')} resizeMode="cover" style={styles.image}>
+      <View style={styles.screen}>
+        <Text style={styles.baseText}>
+        </Text>
+        <Text style={styles.innerText}></Text>
+        <Button style={styles.login_button} icon={{ uri: 'https://cdn-icons-png.flaticon.com/512/272/272354.png'}} mode="contained"
+          onPress={() => {navigation.navigate('LogIn', {itemId: 86,otherParam: 'anything you want here',});}}>
+            Log in
+        </Button>
+        <Text style={styles.padding}></Text>
+        <Button style={styles.signup_button} icon={{ uri: 'http://cdn.onlinewebfonts.com/svg/img_411076.png'}} mode="contained"
+          onPress={() => {navigation.navigate('SignUp', {itemId: 86,otherParam: 'anything you want here',});}}>
+            Sign up
+        </Button>
+        
+        <Text style={styles.padding}></Text>
+
+      </View>
+    </ImageBackground>
   );
 }
 
@@ -58,7 +53,6 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center', 
     justifyContent: 'center' , 
-    backgroundColor: '#ACC5F8'
   },
   login_button: {
     width: '100%',
@@ -82,6 +76,10 @@ const styles = StyleSheet.create({
   logo: {
     width: 80,
     height: 80,
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center"
   }
 });
 
