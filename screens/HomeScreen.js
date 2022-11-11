@@ -7,6 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
+
+
 const HomeScreen = ({ navigation }) => {
 
 
@@ -16,12 +18,16 @@ const HomeScreen = ({ navigation }) => {
             <Text style={stylesForHomeScreen.titleText}>Username</Text>
 
             <View style={stylesForHomeScreen.ViewButton}>
-            <Button style={stylesForHomeScreen.ColorButton} mode="contained" onPress={() => console.log('Pressed')}>
-                Overview
+            <Button style={stylesForHomeScreen.ColorButton} mode="contained"
+              onPress={() => {navigation.navigate('Home', {itemId: 86,otherParam: 'anything you want here',});}}>
+              Overview
             </Button>
-            <Button style={stylesForHomeScreen.ColorButton} mode="contained" onPress={() => console.log('Pressed')}>
-                Limits
+
+            <Button style={stylesForHomeScreen.ColorButton} mode="contained"
+              onPress={() => {navigation.navigate('Limits', {itemId: 86,otherParam: 'anything you want here',});}}>
+              Limits
             </Button>
+
             <Button style={stylesForHomeScreen.ColorButton} mode="contained" onPress={() => console.log('Pressed')}>
                 Calender
             </Button>
@@ -34,12 +40,14 @@ const HomeScreen = ({ navigation }) => {
                 <Text style={stylesForHomeScreen.AmountText}>70$</Text>
 
                 <View style={stylesForHomeScreen.ViewButton}>
-                <Button style={stylesForHomeScreen.ColorAmountButton} mode="contained" onPress={() => console.log('Pressed')}>
-                    Amount 100$
-                </Button>
-                <Button style={stylesForHomeScreen.ColorExpensesButton} mode="contained" onPress={() => console.log('Pressed')}>
-                    Amount Expenses 30$
-            </Button>
+                <Card style={stylesForHomeScreen.ColorAmountButton} mode="contained" onPress={() => console.log('Pressed')}>
+                    <Text style={stylesForHomeScreen.text} >Amount Income</Text>
+                    <Text style={stylesForHomeScreen.text}>100$</Text> 
+                </Card>
+                <Card style={stylesForHomeScreen.ColorExpensesButton} mode="contained" onPress={() => console.log('Pressed')}>
+                    <Text style={stylesForHomeScreen.text}>Amount Expenses</Text>
+                    <Text style={stylesForHomeScreen.text}>30$</Text>  
+                </Card>
                 </View>
 
                 </Card.Content>
@@ -90,9 +98,10 @@ const stylesForHomeScreen = StyleSheet.create({
     },
     AmountText: {
       fontSize: 30,
-      fontWeight: 'normal',
+      fontWeight: 'bold',
       color: '#000000',
-      alignSelf:'center'
+      alignSelf:'center',
+      paddingBottom:10
     },
     screen: {
       flex: 1, 
@@ -101,14 +110,14 @@ const stylesForHomeScreen = StyleSheet.create({
       backgroundColor: '#ACC5F8'
     },
     cardStyle: {
-            flex: 1,
+            flex: 1.5,
             backgroundColor: '#fffff0',
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
             borderBottomLeftRadius: 20,
             borderBottomRightRadius: 20,
             width: 325,
-            margin: 30,
+            margin: 5,
             justifyContent: 'space-around',
             alignSelf: 'center'
       },
@@ -124,30 +133,45 @@ const stylesForHomeScreen = StyleSheet.create({
         alignSelf: 'center'
   },
     ViewButton : {
-   
     flexDirection: "row",
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     alignSelf: 'center'
   },
   ColorButton:{
     backgroundColor: '#2f4f4f'
   },
   ColorAmountButton:{
-    backgroundColor: '#6495ed'
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    backgroundColor: '#6495ed',
+    alignItems:'center',
+    alignSelf: 'center',
+    width: 125,
   },
   ColorExpensesButton:{
-    backgroundColor: '#ff8c00'
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    backgroundColor: '#ff8c00',
+    justifyContent: 'flex-start',
+    width: 125,
+    alignSelf: 'center',
+    alignItems:'center',
   },
   button: {
     alignSelf: 'center', 
     justifyContent: 'center' ,
     alignItems: 'center',
     backgroundColor: '#ACC5F8'
+  },
+  text: {
+    alignSelf: 'center', 
   }
   });
 
-  
-
+ 
 export default HomeScreen;
 
-const styles = StyleSheet.create({})

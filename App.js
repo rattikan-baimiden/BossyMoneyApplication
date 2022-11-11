@@ -8,6 +8,7 @@ import LogInScreen from './screens/LogInScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import AddMenuScreen from './screens/AddMenuScreen';
 import HomeScreen from './screens/HomeScreen';
+import Limits from './screens/Limits';
 
 function WelcomeScreen({ navigation }) {
 
@@ -26,6 +27,7 @@ function WelcomeScreen({ navigation }) {
           onPress={() => {navigation.navigate('SignUp', {itemId: 86,otherParam: 'anything you want here',});}}>
             Sign up
         </Button>
+        
         
         <Text style={styles.padding}></Text>
 
@@ -96,6 +98,7 @@ function App() {
         <Stack.Screen name="SignUp" component={SignUpScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="AddMenu" component={AddMenuScreen} />
+        <Stack.Screen name="Limits" component={Limits} />
       </Stack.Navigator>
     </NavigationContainer>
   );
