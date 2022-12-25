@@ -93,12 +93,12 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Welcome">
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
-        <Stack.Screen name="LogIn" component={LogInScreen} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="AddMenu" component={AddMenuScreen} />
-        <Stack.Screen name="Limits" component={Limits} />
+        <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="LogIn" component={LogInScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="AddMenu" component={AddMenuScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="Limits" component={Limits} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
