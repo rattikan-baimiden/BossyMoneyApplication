@@ -24,6 +24,8 @@ connectDB();
 
 app.use('/api/bossymoney/auth', require('./routes/user'));
 app.use('/api/bossymoney', require('./routes/type'));
+app.use('/api/bossymoney', require('./routes/finance'));
+app.use('/api/bossymoney', require('./routes/saving'));
 
 const PORT = process.env.PORT || 8080;
 
