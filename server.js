@@ -23,6 +23,7 @@ connectDB();
 
 
 app.use('/api/bossymoney/auth', require('./routes/user'));
+app.use('/api/bossymoney', require('./routes/type'));
 
 const PORT = process.env.PORT || 8080;
 

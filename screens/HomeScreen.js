@@ -5,17 +5,49 @@ import { Button } from 'react-native-paper';
 import { Card, Title, Paragraph } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
 
 const HomeScreen = ({ navigation }) => {
+  const [user, setUser] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
+
+  const fetchUser = async () => {
+    const token = await AsyncStorage.getItem('@token')
+    const response = await fetch('http://192.168.2.54:8080/api/bossymoney/auth/getUser', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization' : token
+      },
+    })
+    const data = await response.json()
+    setUser(data.user)
+    setIsLoading(false)
+  }
+
+  useEffect(() => {
+    fetchUser()
+  }, [isLoading])
 
 
     return (
         <View style={stylesForHomeScreen.screen}>
             <Text style={stylesForHomeScreen.bodyText}>Bossy Money</Text>
-            <Text style={stylesForHomeScreen.titleText}>Username</Text>
+            <Text style={stylesForHomeScreen.titleText}>
+              <View>
+                { isLoading ?
+                  <Text>Loading</Text>
+                :
+                  <View>
+                    <Text style={stylesForHomeScreen.titleText}>{user.username}</Text>
+                  </View>
+                }
+              </View>
+              {/* Username */}
+            </Text>
 
             <View style={stylesForHomeScreen.ViewButton}>
             <Button style={stylesForHomeScreen.ColorButton} mode="contained"
