@@ -6,9 +6,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Button } from 'react-native-paper';
 import LogInScreen from './screens/LogInScreen';
 import SignUpScreen from './screens/SignUpScreen';
-import AddMenuScreen from './screens/AddMenuScreen';
 import HomeScreen from './screens/HomeScreen';
 import Limits from './screens/Limits';
+import FinancialHistory from './screens/FinancialHistory';
+import AddIncome from './screens/AddIncome';
+import AddExpenses from './screens/AddExpenses';
+import AddLimits from './screens/AddLimits';
+// import Calendarsc from './screens/Calendarsc';
 
 function WelcomeScreen({ navigation }) {
 
@@ -27,7 +31,6 @@ function WelcomeScreen({ navigation }) {
           onPress={() => {navigation.navigate('SignUp', {itemId: 86,otherParam: 'anything you want here',});}}>
             Sign up
         </Button>
-        
         
         <Text style={styles.padding}></Text>
 
@@ -97,8 +100,12 @@ function App() {
         <Stack.Screen name="LogIn" component={LogInScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
-        <Stack.Screen name="AddMenu" component={AddMenuScreen} options={{ headerShown: false }}/>
-        <Stack.Screen name="Limits" component={Limits} options={{ headerShown: false }}/>
+        <Stack.Screen name="Limits" component={Limits} options={{ headerShown: false }} />
+        <Stack.Screen name="FinancialHistory" component={FinancialHistory} options={{ headerShown: false }} />
+        <Stack.Screen name="AddIncome" component={AddIncome} options={{ headerShown: false }} />
+        <Stack.Screen name="AddExpenses" component={AddExpenses} options={{ headerShown: false }} />
+        <Stack.Screen name="AddLimits" component={AddLimits} options={{ headerShown: false }} />
+        {/* <Stack.Screen name="Calendarsc" component={Calendarsc} options={{ headerShown: false }}/> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
